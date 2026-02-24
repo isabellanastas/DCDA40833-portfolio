@@ -24,6 +24,7 @@
             <li><a href="lab5.html">Lab 5</a></li>
             <li><a href="hometown-map.html">Hometown Map</a></li>
         </ul>
+        <button class="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
     </nav>
 
      <!-- I choose these colors using a palette developed on Coolers. I think these colors look nice together and don't distract from the content of the website. -->
@@ -130,6 +131,7 @@
     </footer>
 
     <script>
+        // Hamburger menu
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -149,7 +151,28 @@
                 navMenu.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
             });
-        }); 
+        });
+
+        // Dark mode toggle
+        const toggle = document.querySelector('.dark-mode-toggle');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggle.textContent = '☀️';
+        }
+
+        toggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                toggle.textContent = '🌙';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                toggle.textContent = '☀️';
+            }
+        });
     </script>
 </body>
 </html>

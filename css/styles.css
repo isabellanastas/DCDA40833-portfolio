@@ -16,6 +16,99 @@
     --white: #ffffff;
 } 
 
+/* =========================
+   Dark Mode Theme Override
+   ========================= */
+[data-theme="dark"] {
+    --primary-color: #5c587a;
+    --secondary-color: #fc7753;
+    --accent-color: #66d7d1;
+    --text-color: #e2e0e8;
+    --text-secondary: #a0a4b8;
+    --bg-color: #1a1a2e;
+    --white: #24243e;
+}
+
+[data-theme="dark"] header {
+    background-color: #24243e;
+}
+
+[data-theme="dark"] nav {
+    background-color: #1a1a2e;
+}
+
+[data-theme="dark"] main section {
+    background-color: #24243e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] footer {
+    background-color: #12121f;
+}
+
+[data-theme="dark"] th {
+    background: #5c587a;
+}
+
+[data-theme="dark"] tr:nth-child(even) {
+    background: #2a2a45;
+}
+
+[data-theme="dark"] td, [data-theme="dark"] th {
+    border-color: #3a3a5c;
+}
+
+[data-theme="dark"] table {
+    background: #24243e;
+}
+
+[data-theme="dark"] p code, [data-theme="dark"] li code {
+    background: #2a2a45;
+    color: #fc7753;
+}
+
+[data-theme="dark"] .portfolio-card {
+    background: #24243e;
+    border-color: #3a3a5c;
+}
+
+[data-theme="dark"] .portfolio-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .framework-callout {
+    background: linear-gradient(135deg, #2a2a45, #1e1e38);
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+    background: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-left: 0.5rem;
+}
+
+.dark-mode-toggle:hover {
+    border-color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+/* Smooth transition for dark mode */
+html, body, header, nav, main section, footer, table, .portfolio-card, .framework-callout {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 
 /* =========================
    Basic Reset & Typography
@@ -436,7 +529,7 @@ footer a:hover {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background-color: var(--text-color);
+    background-color: white;
     margin: 3px 0;
     transition: all 0.3s ease;
     display: block;
@@ -469,7 +562,7 @@ footer a:hover {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--white);
+        background-color: var(--primary-color);
         flex-direction: column;
         max-height: 0;
         overflow: hidden;
@@ -485,6 +578,6 @@ footer a:hover {
         width: 100%;
         text-align: center;
         padding: 1rem 0;
-        border-bottom: 1px solid var(--bg-color);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
 }
