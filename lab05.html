@@ -23,24 +23,107 @@
 
     <main>
         <section>
-            <h2>Experiment A</h2>
-            <h3>Dark Mode Toggle</h3>
-            <p>Insert text</p>
+            <h2>Experiments</h2>
+            <h3>Experiment A: Dark Mode Toggle</h3>
+            <h3>Experiment B: Visualization</h3>
+            <div class="viz-container">
+                <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:600px; width:100%; background:#4a7c59; border-radius:8px;">
+                    <!-- Court lines -->
+                    <rect x="50" y="40" width="500" height="220" fill="none" stroke="white" stroke-width="2"/>
+                    <line x1="300" y1="40" x2="300" y2="260" stroke="white" stroke-width="2"/>
+                    <!-- Net -->
+                    <line x1="300" y1="30" x2="300" y2="270" stroke="#ccc" stroke-width="3" stroke-dasharray="6,4"/>
+                    <rect x="296" y="25" width="8" height="10" fill="#888" rx="1"/>
+                    <rect x="296" y="265" width="8" height="10" fill="#888" rx="1"/>
+
+                    <!-- Player 1 (left) -->
+                    <g id="player1">
+                        <!-- Head -->
+                        <circle cx="120" cy="120" r="14" fill="#f4c089"/>
+                        <circle cx="120" cy="120" r="14" fill="none" stroke="#333" stroke-width="1.5"/>
+                        <!-- Body -->
+                        <line x1="120" y1="134" x2="120" y2="180" stroke="#333" stroke-width="3"/>
+                        <!-- Legs -->
+                        <line x1="120" y1="180" x2="108" y2="210" stroke="#333" stroke-width="3"/>
+                        <line x1="120" y1="180" x2="132" y2="210" stroke="#333" stroke-width="3"/>
+                        <!-- Shirt -->
+                        <rect x="110" y="138" width="20" height="25" rx="3" fill="#fc7753"/>
+                        <!-- Arm with racket -->
+                        <g>
+                            <line x1="120" y1="145" x2="155" y2="125" stroke="#333" stroke-width="3">
+                                <animate attributeName="x2" values="155;150;155" dur="1.2s" repeatCount="indefinite"/>
+                                <animate attributeName="y2" values="125;135;125" dur="1.2s" repeatCount="indefinite"/>
+                            </line>
+                            <!-- Racket -->
+                            <g>
+                                <animateTransform attributeName="transform" type="translate" values="0,0;-5,10;0,0" dur="1.2s" repeatCount="indefinite"/>
+                                <line x1="155" y1="125" x2="172" y2="115" stroke="#8B4513" stroke-width="2.5"/>
+                                <ellipse cx="180" cy="110" rx="12" ry="16" fill="none" stroke="#333" stroke-width="2"/>
+                                <line x1="172" y1="100" x2="172" y2="120" stroke="#333" stroke-width="0.5" opacity="0.5"/>
+                                <line x1="174" y1="110" x2="188" y2="110" stroke="#333" stroke-width="0.5" opacity="0.5"/>
+                            </g>
+                        </g>
+                        <!-- Other arm -->
+                        <line x1="120" y1="145" x2="100" y2="165" stroke="#333" stroke-width="3"/>
+                    </g>
+
+                    <!-- Player 2 (right) -->
+                    <g id="player2">
+                        <!-- Head -->
+                        <circle cx="480" cy="120" r="14" fill="#f4c089"/>
+                        <circle cx="480" cy="120" r="14" fill="none" stroke="#333" stroke-width="1.5"/>
+                        <!-- Body -->
+                        <line x1="480" y1="134" x2="480" y2="180" stroke="#333" stroke-width="3"/>
+                        <!-- Legs -->
+                        <line x1="480" y1="180" x2="468" y2="210" stroke="#333" stroke-width="3"/>
+                        <line x1="480" y1="180" x2="492" y2="210" stroke="#333" stroke-width="3"/>
+                        <!-- Shirt -->
+                        <rect x="470" y="138" width="20" height="25" rx="3" fill="#66d7d1"/>
+                        <!-- Arm with racket -->
+                        <g>
+                            <line x1="480" y1="145" x2="445" y2="125" stroke="#333" stroke-width="3">
+                                <animate attributeName="x2" values="445;450;445" dur="1.2s" repeatCount="indefinite" begin="0.6s"/>
+                                <animate attributeName="y2" values="125;135;125" dur="1.2s" repeatCount="indefinite" begin="0.6s"/>
+                            </line>
+                            <!-- Racket -->
+                            <g>
+                                <animateTransform attributeName="transform" type="translate" values="0,0;5,10;0,0" dur="1.2s" repeatCount="indefinite" begin="0.6s"/>
+                                <line x1="445" y1="125" x2="428" y2="115" stroke="#8B4513" stroke-width="2.5"/>
+                                <ellipse cx="420" cy="110" rx="12" ry="16" fill="none" stroke="#333" stroke-width="2"/>
+                                <line x1="428" y1="100" x2="428" y2="120" stroke="#333" stroke-width="0.5" opacity="0.5"/>
+                                <line x1="412" y1="110" x2="426" y2="110" stroke="#333" stroke-width="0.5" opacity="0.5"/>
+                            </g>
+                        </g>
+                        <!-- Other arm -->
+                        <line x1="480" y1="145" x2="500" y2="165" stroke="#333" stroke-width="3"/>
+                    </g>
+
+                    <!-- Tennis Ball -->
+                    <circle cx="300" cy="130" r="7" fill="#ccff00" stroke="#999900" stroke-width="1">
+                        <animate attributeName="cx" values="185;415;185" dur="2.4s" repeatCount="indefinite"/>
+                        <animate attributeName="cy" values="120;120;120" dur="2.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1"/>
+                    </circle>
+                    <!-- Ball arc (vertical bounce) -->
+                    <circle cx="300" cy="130" r="7" fill="#ccff00" stroke="#999900" stroke-width="1" opacity="0">
+                        <animate attributeName="cx" values="185;415;185" dur="2.4s" repeatCount="indefinite"/>
+                        <animate attributeName="cy" values="120;80;120;80;120" dur="2.4s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="1;1;1" dur="2.4s" repeatCount="indefinite"/>
+                    </circle>
+
+                    <!-- Ball shadow -->
+                    <ellipse cx="300" cy="220" rx="6" ry="2" fill="rgba(0,0,0,0.2)">
+                        <animate attributeName="cx" values="185;415;185" dur="2.4s" repeatCount="indefinite"/>
+                        <animate attributeName="rx" values="6;4;6" dur="2.4s" repeatCount="indefinite"/>
+                    </ellipse>
+                </svg>
+                <figcaption>Animated tennis rally — two players hitting a ball back and forth</figcaption>
+            </div>
+            <h3>Experiment C: Bug Fixes</h3>
+            <img src="AI.jpg" alt="AI Coding">
+
         </section>
 
-        <section>
-            <h2>Experiment B</h2>
-            <h3>Data Preparation</h3>
-            <p>Insert text</p>
-        </section>
-
-        <section>
-            <h2>Experiment C</h2>
-            <h3>Dark Mode Toggle</h3>
-            <p>Insert text</p>
-        </section>
-
-        <section>
+ <section>
             <h2>Reflection</h2>
             <h3>Technical Understanding</h3>
             <p>Insert text</p>
