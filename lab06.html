@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Visualization | Isabella Nastas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="lab02.html">Lab 2: AI Evaluation</a>
+            <a href="lab03.html">Lab 3: Visualization Critique</a>
+            <a href="lab04.html">Lab 4: Tableau Viz</a>
+            <a href="lab05.html" class="active">Lab 5: Vibe Coding</a>
+            <a href="lab06.html">Lab 6: Hometown Map</a>
+            <!-- Add more lab links as the semester progresses -->
+            <button class="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+        <h1>Hometown Map</h1>
+    </header>
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d9c02b26b828f9a1ea1d4e19fbd79695 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_d9c02b26b828f9a1ea1d4e19fbd79695" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d9c02b26b828f9a1ea1d4e19fbd79695 = L.map(
+                "map_d9c02b26b828f9a1ea1d4e19fbd79695",
+                {
+                    center: [41.811406999999996, -87.9313328],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_11b5c4dc70bcbed831f40bd17a09448c = L.tileLayer(
+                "https://api.mapbox.com/styles/v1/isabellanastas/cmm9xkdt9001y01s5dxkg2fd8/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiaXNhYmVsbGFuYXN0YXMiLCJhIjoiY21sdHFwejNlMDNpOTNkcHZ3NjRzb3diYyJ9.4sMfBTRy1tbqwuWI_q0p2w",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Mapbox",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_11b5c4dc70bcbed831f40bd17a09448c.addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var marker_331085ceba80739116e5322f2092eeef = L.marker(
+                [41.801437, -87.928332],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_73a59b53a9bfe3ca04402fdc4f7fc8b8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4cfa96083bf6a5062d0853aafcd3fd26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_a574e7b32825f7aae9267cadd152834d = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5OYWJ1a2k8L2g0PgogICAgICA8cCBzdHlsZT0nbWFyZ2luOjA7IGZvbnQtc2l6ZToxM3B4OyBsaW5lLWhlaWdodDoxLjM7Jz5BbiB1cHNjYWxlIHN1c2hpIHJlc3RhdXJhbnQga25vd24gZm9yIGZyZXNoIGZpc2ggYW5kIGNyZWF0aXZlIHNwZWNpYWx0eSByb2xscy4gSXTigJlzIGEgZ28tdG8gc3BvdCBmb3IgY2VsZWJyYXRvcnkgZGlubmVycy48L3A+CiAgICAgIDxpbWcgc3JjPSJodHRwczovL25hcGVydmlsbGVtYWdhemluZS5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMjIvMDUvUFk5QTA2MDNfODAwcHguanBnIiBzdHlsZT0id2lkdGg6MjUwcHg7IGJvcmRlci1yYWRpdXM6MTBweDsgbWFyZ2luLXRvcDo4cHg7IiAvPgogICAgPC9kaXY+CiAgICA=" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_4cfa96083bf6a5062d0853aafcd3fd26.setContent(i_frame_a574e7b32825f7aae9267cadd152834d);
+            
+        
+
+        marker_331085ceba80739116e5322f2092eeef.bindPopup(popup_4cfa96083bf6a5062d0853aafcd3fd26)
+        ;
+
+        
+    
+    
+            marker_331085ceba80739116e5322f2092eeef.bindTooltip(
+                `<div>
+                     Nabuki
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_331085ceba80739116e5322f2092eeef.setIcon(icon_73a59b53a9bfe3ca04402fdc4f7fc8b8);
+            
+    
+            var marker_cab7280fa663a0e6ae0644e426984bf1 = L.marker(
+                [41.795879, -87.9548],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_2b159aa589b303d166a799566e262391 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3387c453d3f9f8e5dea3fb4cca083790 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_d86648fe9a846dae1f6518d1f31e727b = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5JbCBNaW88L2g0PgogICAgICA8cCBzdHlsZT0nbWFyZ2luOjA7IGZvbnQtc2l6ZToxM3B4OyBsaW5lLWhlaWdodDoxLjM7Jz5BIGNvenkgSXRhbGlhbiByZXN0YXVyYW50IHNlcnZpbmcgY2xhc3NpYyBwYXN0YSBkaXNoZXMgYW5kIGNvbWZvcnRpbmcgZW50csOpZXMuIEl0IGhhcyBhIG5laWdoYm9yaG9vZCBmZWVsIHRoYXQgbWFrZXMgaXQgZ3JlYXQgZm9yIGZhbWlseSBkaW5uZXJzLjwvcD4KICAgICAgPGltZyBzcmM9Imh0dHBzOi8vZWF0aWxtaW8uY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDIxLzEyL0lMX01JT19wYXJ0eS02Ni5qcGciIHN0eWxlPSJ3aWR0aDoyNTBweDsgYm9yZGVyLXJhZGl1czoxMHB4OyBtYXJnaW4tdG9wOjhweDsiIC8+CiAgICA8L2Rpdj4KICAgIA==" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_3387c453d3f9f8e5dea3fb4cca083790.setContent(i_frame_d86648fe9a846dae1f6518d1f31e727b);
+            
+        
+
+        marker_cab7280fa663a0e6ae0644e426984bf1.bindPopup(popup_3387c453d3f9f8e5dea3fb4cca083790)
+        ;
+
+        
+    
+    
+            marker_cab7280fa663a0e6ae0644e426984bf1.bindTooltip(
+                `<div>
+                     Il Mio
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cab7280fa663a0e6ae0644e426984bf1.setIcon(icon_2b159aa589b303d166a799566e262391);
+            
+    
+            var marker_fdf12dd7d22c8fadc63717a322287c3e = L.marker(
+                [41.851049, -87.950473],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_04878ed7a06df0a59527e8ad5095b64d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6ba71dcdb8ae52197069040cce7cf95a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_7351cf6cbd170ef68e56352a3fd84b17 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5WaW9saTwvaDQ+CiAgICAgIDxwIHN0eWxlPSdtYXJnaW46MDsgZm9udC1zaXplOjEzcHg7IGxpbmUtaGVpZ2h0OjEuMzsnPkEgbW9kZXJuIEdyZWVrIHJlc3RhdXJhbnQgb2ZmZXJpbmcgc2hhcmVhYmxlIHBsYXRlcyBhbmQgTWVkaXRlcnJhbmVhbi1pbnNwaXJlZCBkaXNoZXMuIEl04oCZcyBzdHlsaXNoIGFuZCBsaXZlbHksIHBlcmZlY3QgZm9yIGdyb3VwIGRpbm5lcnMuPC9wPgogICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9pbWFnZXMuZ2V0YmVudG8uY29tL2FjY291bnRzLzg2YTg0NWEyYzc1ZDNkNWM2MmNmMDhiODMzMTViMTgzL21lZGlhL2ltYWdlcy84OTc2OVZJT0xJX1BhdGlvXzIwMjQuanBnP3c9MTgwMCZmaXQ9bWF4JmF1dG89Y29tcHJlc3MsZm9ybWF0JmNzPW9yaWdpbiZoPTE4MDAiIHN0eWxlPSJ3aWR0aDoyNTBweDsgYm9yZGVyLXJhZGl1czoxMHB4OyBtYXJnaW4tdG9wOjhweDsiIC8+CiAgICA8L2Rpdj4KICAgIA==" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_6ba71dcdb8ae52197069040cce7cf95a.setContent(i_frame_7351cf6cbd170ef68e56352a3fd84b17);
+            
+        
+
+        marker_fdf12dd7d22c8fadc63717a322287c3e.bindPopup(popup_6ba71dcdb8ae52197069040cce7cf95a)
+        ;
+
+        
+    
+    
+            marker_fdf12dd7d22c8fadc63717a322287c3e.bindTooltip(
+                `<div>
+                     Violi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fdf12dd7d22c8fadc63717a322287c3e.setIcon(icon_04878ed7a06df0a59527e8ad5095b64d);
+            
+    
+            var marker_e5db25b7a7ed237ece9e98eb63d8a4d0 = L.marker(
+                [41.851098, -87.950459],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_7a5f48c47cb961e522690d87d4d7fe96 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_72273067a7acc8720e3d93d27db6a6ab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_575c3ca91866a1950af280a14168d73b = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5CZWF0cml4PC9oND4KICAgICAgPHAgc3R5bGU9J21hcmdpbjowOyBmb250LXNpemU6MTNweDsgbGluZS1oZWlnaHQ6MS4zOyc+QSB0cmVuZHkgZmF2b3JpdGUgdGhhdCBibGVuZHMgaGVhbHRoeSBvcHRpb25zIHdpdGggaW5kdWxnZW50IGNvbWZvcnQgZm9vZC4gSXTigJlzIHBvcHVsYXIgZm9yIGJydW5jaCwgY29mZmVlIG1lZXRpbmdzLCBhbmQgY2FzdWFsIGRpbm5lcnMuPC9wPgogICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2JlYXRyaXgyMDIzX2J1Y2tldC93cC1jb250ZW50L3VwbG9hZHMvMjdmZTI5MzgtYmVhdHJpeF9vYWticm9va2ludGVyaW9yNC0xLmpwZyIgc3R5bGU9IndpZHRoOjI1MHB4OyBib3JkZXItcmFkaXVzOjEwcHg7IG1hcmdpbi10b3A6OHB4OyIgLz4KICAgIDwvZGl2PgogICAg" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_72273067a7acc8720e3d93d27db6a6ab.setContent(i_frame_575c3ca91866a1950af280a14168d73b);
+            
+        
+
+        marker_e5db25b7a7ed237ece9e98eb63d8a4d0.bindPopup(popup_72273067a7acc8720e3d93d27db6a6ab)
+        ;
+
+        
+    
+    
+            marker_e5db25b7a7ed237ece9e98eb63d8a4d0.bindTooltip(
+                `<div>
+                     Beatrix
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e5db25b7a7ed237ece9e98eb63d8a4d0.setIcon(icon_7a5f48c47cb961e522690d87d4d7fe96);
+            
+    
+            var marker_75a464ded9d8c458f6a0c55ea9a48bf5 = L.marker(
+                [41.802684, -87.927417],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_e2e7b3cd535f66027261065a12ed3723 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_489628de136bbcecf7cf4130dac35278 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_8cd258ce1043883cd57f4b564833c9e4 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5IaW5zZGFsZSBQcmltZTwvaDQ+CiAgICAgIDxwIHN0eWxlPSdtYXJnaW46MDsgZm9udC1zaXplOjEzcHg7IGxpbmUtaGVpZ2h0OjEuMzsnPkFuIHVwc2NhbGUgc3RlYWtob3VzZSBrbm93biBmb3IgcHJlbWl1bSBjdXRzIGFuZCBhIHBvbGlzaGVkIGF0bW9zcGhlcmUuIEl04oCZcyBhIGNsYXNzaWMgc3BvdCBmb3Igc3BlY2lhbCBvY2Nhc2lvbnMuPC9wPgogICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9zdGF0aWMuc3BvdGFwcHMuY28vc3BvdHMvZDUvNWFjMDc0ZDYwZTQyNTY5MmY0YzdhZjdjM2MzZThkLzpvcmlnaW5hbCIgc3R5bGU9IndpZHRoOjI1MHB4OyBib3JkZXItcmFkaXVzOjEwcHg7IG1hcmdpbi10b3A6OHB4OyIgLz4KICAgIDwvZGl2PgogICAg" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_489628de136bbcecf7cf4130dac35278.setContent(i_frame_8cd258ce1043883cd57f4b564833c9e4);
+            
+        
+
+        marker_75a464ded9d8c458f6a0c55ea9a48bf5.bindPopup(popup_489628de136bbcecf7cf4130dac35278)
+        ;
+
+        
+    
+    
+            marker_75a464ded9d8c458f6a0c55ea9a48bf5.bindTooltip(
+                `<div>
+                     Hinsdale Prime
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_75a464ded9d8c458f6a0c55ea9a48bf5.setIcon(icon_e2e7b3cd535f66027261065a12ed3723);
+            
+    
+            var marker_a0709f4f3eeaa563a8507216605e6c5e = L.marker(
+                [41.814057, -87.870789],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_e5a33ecdcf2d3353767ffcbfe62fc05c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61a20d2afb19b95cbd5a113a976c6f61 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_70b587f6fb01414c4aeef7c7f5959926 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5UaGUgRWxtPC9oND4KICAgICAgPHAgc3R5bGU9J21hcmdpbjowOyBmb250LXNpemU6MTNweDsgbGluZS1oZWlnaHQ6MS4zOyc+QSBjb250ZW1wb3JhcnkgQW1lcmljYW4gcmVzdGF1cmFudCB3aXRoIGEgcmVmaW5lZCB5ZXQgcmVsYXhlZCB2aWJlLiBUaGUgc2Vhc29uYWwgbWVudSBhbmQgY3JhZnQgY29ja3RhaWxzIG1ha2UgaXQgYSBzdGFuZG91dCBsb2NhbCBmYXZvcml0ZS48L3A+CiAgICAgIDxpbWcgc3JjPSJodHRwczovL2ltYWdlcy5zcXVhcmVzcGFjZS1jZG4uY29tL2NvbnRlbnQvdjEvNWQ4MmI4M2Y1MWNiNTIzNzc2MDQwZjQ2LzE3NDUyOTA5MjEzMTItOU42WVhKNURXWUZQWkNBTTlURDMvaW1hZ2UtYXNzZXQuanBlZz9mb3JtYXQ9MTAwMHciIHN0eWxlPSJ3aWR0aDoyNTBweDsgYm9yZGVyLXJhZGl1czoxMHB4OyBtYXJnaW4tdG9wOjhweDsiIC8+CiAgICA8L2Rpdj4KICAgIA==" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_61a20d2afb19b95cbd5a113a976c6f61.setContent(i_frame_70b587f6fb01414c4aeef7c7f5959926);
+            
+        
+
+        marker_a0709f4f3eeaa563a8507216605e6c5e.bindPopup(popup_61a20d2afb19b95cbd5a113a976c6f61)
+        ;
+
+        
+    
+    
+            marker_a0709f4f3eeaa563a8507216605e6c5e.bindTooltip(
+                `<div>
+                     The Elm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a0709f4f3eeaa563a8507216605e6c5e.setIcon(icon_e5a33ecdcf2d3353767ffcbfe62fc05c);
+            
+    
+            var marker_4b920bef41c28616dc0a64d46338afe7 = L.marker(
+                [41.814539, -87.869382],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_9011f9ab7cdc6e1bf9e91cb650549f3c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b78da244858697fde5bd101027b53968 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_ea1f38129ae85f87e6b9f6fa2eacd744 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5Pd2wgYW5kIExhcms8L2g0PgogICAgICA8cCBzdHlsZT0nbWFyZ2luOjA7IGZvbnQtc2l6ZToxM3B4OyBsaW5lLWhlaWdodDoxLjM7Jz5BIGNoYXJtaW5nIGNhZsOpIGtub3duIGZvciBzcGVjaWFsdHkgY29mZmVlIGFuZCBmcmVzaCBwYXN0cmllcy4gSXTigJlzIGEgY296eSBwbGFjZSB0byBzdHVkeSBvciBjYXRjaCB1cCB3aXRoIGZyaWVuZHMuPC9wPgogICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9vYWtwYXJrYW5kYmV5b25kLm9yZy9odWJmcy9MYUdyYW5nZS9MYUdyYW5nZS1FYXQtRHJpbmsvT3dsJTIwYW5kJTIwTGFyay9Pd2wlMjAxOC5qcGciIHN0eWxlPSJ3aWR0aDoyNTBweDsgYm9yZGVyLXJhZGl1czoxMHB4OyBtYXJnaW4tdG9wOjhweDsiIC8+CiAgICA8L2Rpdj4KICAgIA==" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_b78da244858697fde5bd101027b53968.setContent(i_frame_ea1f38129ae85f87e6b9f6fa2eacd744);
+            
+        
+
+        marker_4b920bef41c28616dc0a64d46338afe7.bindPopup(popup_b78da244858697fde5bd101027b53968)
+        ;
+
+        
+    
+    
+            marker_4b920bef41c28616dc0a64d46338afe7.bindTooltip(
+                `<div>
+                     Owl and Lark
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4b920bef41c28616dc0a64d46338afe7.setIcon(icon_9011f9ab7cdc6e1bf9e91cb650549f3c);
+            
+    
+            var marker_a81e64616ac3939a3dfc7eb1c21e2108 = L.marker(
+                [41.801823, -87.928439],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_5441f5d08a178545066e7e777f39db07 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9367dcb863c3413720aa829f9b7329ba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_c1378f12cf960daa27373224b6af7ce5 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5DYWZlIExhIEZvcnR1bmE8L2g0PgogICAgICA8cCBzdHlsZT0nbWFyZ2luOjA7IGZvbnQtc2l6ZToxM3B4OyBsaW5lLWhlaWdodDoxLjM7Jz5BIHNtYWxsIGNhZsOpIG9mZmVyaW5nIGNvZmZlZSwgYnJlYWtmYXN0IGJpdGVzLCBhbmQgY2FzdWFsIGx1bmNoIG9wdGlvbnMuIEl04oCZcyBhIGNvbnZlbmllbnQgYW5kIHJlbGF4ZWQgZG93bnRvd24gc3RvcC48L3A+CiAgICAgIDxpbWcgc3JjPSJodHRwczovL2R5bmFtaWMtbWVkaWEtY2RuLnRyaXBhZHZpc29yLmNvbS9tZWRpYS9waG90by1vLzEzLzc5LzUwLzBhL3dlbGNvbWUtdG8tY2FmZS1sYS1mb3J0dW5hLmpwZz93PTkwMCZoPTUwMCZzPTEiIHN0eWxlPSJ3aWR0aDoyNTBweDsgYm9yZGVyLXJhZGl1czoxMHB4OyBtYXJnaW4tdG9wOjhweDsiIC8+CiAgICA8L2Rpdj4KICAgIA==" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_9367dcb863c3413720aa829f9b7329ba.setContent(i_frame_c1378f12cf960daa27373224b6af7ce5);
+            
+        
+
+        marker_a81e64616ac3939a3dfc7eb1c21e2108.bindPopup(popup_9367dcb863c3413720aa829f9b7329ba)
+        ;
+
+        
+    
+    
+            marker_a81e64616ac3939a3dfc7eb1c21e2108.bindTooltip(
+                `<div>
+                     Cafe La Fortuna
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a81e64616ac3939a3dfc7eb1c21e2108.setIcon(icon_5441f5d08a178545066e7e777f39db07);
+            
+    
+            var marker_04d8122dcfa1dadd1f96a54eaeb751f6 = L.marker(
+                [41.797137, -87.955408],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_f6b8150c6df904958591e9e16db03f34 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4eb2788be12c6c9befc335091efbef2e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_50d32551c907a65f57f5afa6ed93def9 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5UaWVycmEgRGlzdGlsbGluZzwvaDQ+CiAgICAgIDxwIHN0eWxlPSdtYXJnaW46MDsgZm9udC1zaXplOjEzcHg7IGxpbmUtaGVpZ2h0OjEuMzsnPkEgY3JhZnQgZGlzdGlsbGVyeSBzZXJ2aW5nIHNtYWxsLWJhdGNoIHNwaXJpdHMsIGNyZWF0aXZlIGNvY2t0YWlscywgYW5kIHVuaXF1ZSBjb2ZmZWVzLiBJdOKAmXMgYSBmdW4sIGxvdy1rZXkgcGxhY2UuPC9wPgogICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9pbWFnZXMuc3F1YXJlc3BhY2UtY2RuLmNvbS9jb250ZW50L3YxLzY0NDgyMzBhZTYxNDMzNjQ0OGFiY2M5Yi80Zjc3NTNhNS1kYTNjLTQzZDMtYWYyOS03NGYxNDg1MDI1ZTAvOVc5QTk4MjUuanBnIiBzdHlsZT0id2lkdGg6MjUwcHg7IGJvcmRlci1yYWRpdXM6MTBweDsgbWFyZ2luLXRvcDo4cHg7IiAvPgogICAgPC9kaXY+CiAgICA=" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_4eb2788be12c6c9befc335091efbef2e.setContent(i_frame_50d32551c907a65f57f5afa6ed93def9);
+            
+        
+
+        marker_04d8122dcfa1dadd1f96a54eaeb751f6.bindPopup(popup_4eb2788be12c6c9befc335091efbef2e)
+        ;
+
+        
+    
+    
+            marker_04d8122dcfa1dadd1f96a54eaeb751f6.bindTooltip(
+                `<div>
+                     Tierra Distilling
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_04d8122dcfa1dadd1f96a54eaeb751f6.setIcon(icon_f6b8150c6df904958591e9e16db03f34);
+            
+    
+            var marker_9e1b1b58a7d6c46dfa9a7ddb38ea8a88 = L.marker(
+                [41.773512, -87.953249],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_77dd24b6468e65f5fad6ec30acf5e17b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3613127d4fe06474a59ce581df78e227 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_0478e0c37f6945395135032de50b7336 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5NaWR0b3duPC9oND4KICAgICAgPHAgc3R5bGU9J21hcmdpbjowOyBmb250LXNpemU6MTNweDsgbGluZS1oZWlnaHQ6MS4zOyc+QSBsYXJnZSBhdGhsZXRpYyBjbHViIGZlYXR1cmluZyB0ZW5uaXMgY291cnRzLCBmaXRuZXNzIGNsYXNzZXMsIGFuZCBzcGEgYW1lbml0aWVzLiBJdOKAmXMgbW9yZSBvZiBhIGZ1bGwtc2VydmljZSBmaXRuZXNzIHJlc29ydCB0aGFuIGp1c3QgYSBneW0uPC9wPgogICAgICA8aW1nIHNyYz0iaHR0cHM6Ly93d3cubWlkdG93bi5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMjMvMDEvd2lsX2ZpdG5lc3NmbG9vci0xMDI0eDY4My5qcGciIHN0eWxlPSJ3aWR0aDoyNTBweDsgYm9yZGVyLXJhZGl1czoxMHB4OyBtYXJnaW4tdG9wOjhweDsiIC8+CiAgICA8L2Rpdj4KICAgIA==" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_3613127d4fe06474a59ce581df78e227.setContent(i_frame_0478e0c37f6945395135032de50b7336);
+            
+        
+
+        marker_9e1b1b58a7d6c46dfa9a7ddb38ea8a88.bindPopup(popup_3613127d4fe06474a59ce581df78e227)
+        ;
+
+        
+    
+    
+            marker_9e1b1b58a7d6c46dfa9a7ddb38ea8a88.bindTooltip(
+                `<div>
+                     Midtown
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9e1b1b58a7d6c46dfa9a7ddb38ea8a88.setIcon(icon_77dd24b6468e65f5fad6ec30acf5e17b);
+            
+    
+            var marker_224074edd9ff3edd91a96efbd941548f = L.marker(
+                [41.802283, -87.934269],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_dfd1899407a949ee05caebc14053a1a3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_568296b9585f9587f5f90740c5cf4986 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_852b4be84ea652360c5a7d7dabdc123e = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5Db3JlcG93ZXI8L2g0PgogICAgICA8cCBzdHlsZT0nbWFyZ2luOjA7IGZvbnQtc2l6ZToxM3B4OyBsaW5lLWhlaWdodDoxLjM7Jz5BIHBvcHVsYXIgeW9nYSBzdHVkaW8gb2ZmZXJpbmcgaGVhdGVkIHBvd2VyIHlvZ2EgYW5kIHNjdWxwdCBjbGFzc2VzLiBJdOKAmXMga25vd24gZm9yIGVuZXJnZXRpYyBpbnN0cnVjdG9ycyBhbmQgaGlnaC1pbnRlbnNpdHkgd29ya291dHMuPC9wPgogICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9hLm1rdGdjZG4uY29tL3AvOVRvNkw1UEhHbUVqaHJHZWNkMVpWQ2FEU1lISUJQdFhKU195djhVM0htOC8xOTM2eDE5MzYuanBnIiBzdHlsZT0id2lkdGg6MjUwcHg7IGJvcmRlci1yYWRpdXM6MTBweDsgbWFyZ2luLXRvcDo4cHg7IiAvPgogICAgPC9kaXY+CiAgICA=" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_568296b9585f9587f5f90740c5cf4986.setContent(i_frame_852b4be84ea652360c5a7d7dabdc123e);
+            
+        
+
+        marker_224074edd9ff3edd91a96efbd941548f.bindPopup(popup_568296b9585f9587f5f90740c5cf4986)
+        ;
+
+        
+    
+    
+            marker_224074edd9ff3edd91a96efbd941548f.bindTooltip(
+                `<div>
+                     Corepower
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_224074edd9ff3edd91a96efbd941548f.setIcon(icon_dfd1899407a949ee05caebc14053a1a3);
+            
+    
+            var marker_cde79c605d4f6d096a2783b558639a99 = L.marker(
+                [41.802244, -87.929576],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_4baeb57f1e03ac2a0fd479c4dd950460 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c0b775e5e250034fad9de833f2d108ec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_96066f7ce181df1847c570856a0fe79f = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5BbGl4YW5kcmEgQ29sbGVjdGlvbnM8L2g0PgogICAgICA8cCBzdHlsZT0nbWFyZ2luOjA7IGZvbnQtc2l6ZToxM3B4OyBsaW5lLWhlaWdodDoxLjM7Jz5BIGJvdXRpcXVlIHNwZWNpYWxpemluZyBpbiB0cmVuZHkgd29tZW7igJlzIGNsb3RoaW5nIGFuZCBhY2Nlc3Nvcmllcy4gSXTigJlzIGEgZ28tdG8gZm9yIGVsZXZhdGVkIGJ1dCB3ZWFyYWJsZSBwaWVjZXMuPC9wPgogICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9pbWcucC5tYXBxLnN0Lz91cmw9aHR0cHMlM0ElMkYlMkZzMy1tZWRpYTAuZmwueWVscGNkbi5jb20lMkZicGhvdG8lMkZXVXFXLU5OUUxWRlU4X3MxbkMtWG1BJTJGbC5qcGcmdz0zODQwJnE9NzUiIHN0eWxlPSJ3aWR0aDoyNTBweDsgYm9yZGVyLXJhZGl1czoxMHB4OyBtYXJnaW4tdG9wOjhweDsiIC8+CiAgICA8L2Rpdj4KICAgIA==" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_c0b775e5e250034fad9de833f2d108ec.setContent(i_frame_96066f7ce181df1847c570856a0fe79f);
+            
+        
+
+        marker_cde79c605d4f6d096a2783b558639a99.bindPopup(popup_c0b775e5e250034fad9de833f2d108ec)
+        ;
+
+        
+    
+    
+            marker_cde79c605d4f6d096a2783b558639a99.bindTooltip(
+                `<div>
+                     Alixandra Collections
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cde79c605d4f6d096a2783b558639a99.setIcon(icon_4baeb57f1e03ac2a0fd479c4dd950460);
+            
+    
+            var marker_519d7143229e16a7f7a0da323aa89c7f = L.marker(
+                [41.849057, -87.952399],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_8b3edaa5a4b813d1029d7514bd98033e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c4aeec5d84370a4f091e6128385f0b03 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_403c8cc4ec3b7afbc6dfe7051c12f68d = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5PYWticm9vayBNYWxsPC9oND4KICAgICAgPHAgc3R5bGU9J21hcmdpbjowOyBmb250LXNpemU6MTNweDsgbGluZS1oZWlnaHQ6MS4zOyc+QW4gb3Blbi1haXIgc2hvcHBpbmcgY2VudGVyIGZlYXR1cmluZyBsdXh1cnkgYnJhbmRzIGFuZCBwb3B1bGFyIHJldGFpbGVycy4gSXTigJlzIGEgY2VudHJhbCBodWIgZm9yIHNob3BwaW5nLCBkaW5pbmcsIGFuZCBldmVudHMuPC9wPgogICAgICA8aW1nIHNyYz0iaHR0cHM6Ly93d3cub21uaXBsYW4uY29tL21lZGlhL3dvcmsvY2FzZS1zdHVkeS9vYWticm9vay9JTUdfNTM3Ni5qcGciIHN0eWxlPSJ3aWR0aDoyNTBweDsgYm9yZGVyLXJhZGl1czoxMHB4OyBtYXJnaW4tdG9wOjhweDsiIC8+CiAgICA8L2Rpdj4KICAgIA==" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_c4aeec5d84370a4f091e6128385f0b03.setContent(i_frame_403c8cc4ec3b7afbc6dfe7051c12f68d);
+            
+        
+
+        marker_519d7143229e16a7f7a0da323aa89c7f.bindPopup(popup_c4aeec5d84370a4f091e6128385f0b03)
+        ;
+
+        
+    
+    
+            marker_519d7143229e16a7f7a0da323aa89c7f.bindTooltip(
+                `<div>
+                     Oakbrook Mall
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_519d7143229e16a7f7a0da323aa89c7f.setIcon(icon_8b3edaa5a4b813d1029d7514bd98033e);
+            
+    
+            var marker_9cf86de439e3d155dca3515abafa348d = L.marker(
+                [41.787789, -87.932791],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_d01d13dd507d02329ab83d6caafd3118 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_74723fd76eb2f3357116b284a27fd1cf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_ba2e93ac9421fc4ebee9f6958c0732ff = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5IaW5zZGFsZSBDZW50cmFsIDwvaDQ+CiAgICAgIDxwIHN0eWxlPSdtYXJnaW46MDsgZm9udC1zaXplOjEzcHg7IGxpbmUtaGVpZ2h0OjEuMzsnPlRoZSBsb2NhbCBwdWJsaWMgaGlnaCBzY2hvb2wgc2VydmluZyBIaW5zZGFsZSBhbmQgc3Vycm91bmRpbmcgY29tbXVuaXRpZXMuIEl04oCZcyBrbm93biBmb3Igc3Ryb25nIGFjYWRlbWljcyBhbmQgY29tcGV0aXRpdmUgYXRobGV0aWNzLjwvcD4KICAgICAgPGltZyBzcmM9Imh0dHBzOi8vcmVzb3VyY2VzLmZpbmFsc2l0ZS5uZXQvaW1hZ2VzL2ZfYXV0byxxX2F1dG8sdF9pbWFnZV9zaXplXzIvdjE2NTY5ODYyNDIvZDg2aGluc2RhbGU4Nm9yZy96c2R2NXBtZ2dweHl0d3JjbDVkcS9DZW50cmFsLmpwZyIgc3R5bGU9IndpZHRoOjI1MHB4OyBib3JkZXItcmFkaXVzOjEwcHg7IG1hcmdpbi10b3A6OHB4OyIgLz4KICAgIDwvZGl2PgogICAg" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_74723fd76eb2f3357116b284a27fd1cf.setContent(i_frame_ba2e93ac9421fc4ebee9f6958c0732ff);
+            
+        
+
+        marker_9cf86de439e3d155dca3515abafa348d.bindPopup(popup_74723fd76eb2f3357116b284a27fd1cf)
+        ;
+
+        
+    
+    
+            marker_9cf86de439e3d155dca3515abafa348d.bindTooltip(
+                `<div>
+                     Hinsdale Central 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9cf86de439e3d155dca3515abafa348d.setIcon(icon_d01d13dd507d02329ab83d6caafd3118);
+            
+    
+            var marker_385ebb8ede0b403fae0dc577ff9ba0db = L.marker(
+                [41.826517, -87.932209],
+                {
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+        
+    
+            var icon_38ccd4dd98205e5854daf7565b9a9346 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e778b217de4b97178d7e750404cd01cc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var i_frame_db68ff43cb827e28ac17231f9cff1a80 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9IndpZHRoOjI3MHB4OyI+CiAgICAgIDxoNCBzdHlsZT0nbWFyZ2luLWJvdHRvbTo2cHg7Jz5GdWxsZXJzYnVyZyBXb29kczwvaDQ+CiAgICAgIDxwIHN0eWxlPSdtYXJnaW46MDsgZm9udC1zaXplOjEzcHg7IGxpbmUtaGVpZ2h0OjEuMzsnPkEgc2NlbmljIGZvcmVzdCBwcmVzZXJ2ZSB3aXRoIHdhbGtpbmcgdHJhaWxzIGFuZCB3b29kZWQgbGFuZHNjYXBlcy4gSXTigJlzIGEgcGVhY2VmdWwgc3BvdCBmb3IgcnVucywgYmlrZSByaWRlcywgb3IgZmFsbCB3YWxrcy48L3A+CiAgICAgIDxpbWcgc3JjPSJodHRwczovL2Fzc2V0cy5zaW1wbGV2aWV3aW5jLmNvbS9zaW1wbGV2aWV3L2ltYWdlL3VwbG9hZC9jcm0vZHVwYWdlL0Z1bGxlcnNidXJnLVdvb2RzLUdyYXVlLU1pbGwtNC1fRkJBM0MzRkEtQjY0OS02NTM1LUE3NDhDOEY1NDZCNDIxRkQtZmJhM2MzODIwOTYzMDM3X2ZiYTNlNjNhLWRhMmItMDhhYS1kZmY0YmI0MjQ1ZjE0ZjU4LmpwZyIgc3R5bGU9IndpZHRoOjI1MHB4OyBib3JkZXItcmFkaXVzOjEwcHg7IG1hcmdpbi10b3A6OHB4OyIgLz4KICAgIDwvZGl2PgogICAg" width="290" style="border:none !important;" height="340"></iframe>`)[0];
+                popup_e778b217de4b97178d7e750404cd01cc.setContent(i_frame_db68ff43cb827e28ac17231f9cff1a80);
+            
+        
+
+        marker_385ebb8ede0b403fae0dc577ff9ba0db.bindPopup(popup_e778b217de4b97178d7e750404cd01cc)
+        ;
+
+        
+    
+    
+            marker_385ebb8ede0b403fae0dc577ff9ba0db.bindTooltip(
+                `<div>
+                     Fullersburg Woods
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_385ebb8ede0b403fae0dc577ff9ba0db.setIcon(icon_38ccd4dd98205e5854daf7565b9a9346);
+            
+    
+            var layer_control_2f2227cb79e3420fe156a34dc305197e_layers = {
+                base_layers : {
+                    "Custom Mapbox Style" : tile_layer_11b5c4dc70bcbed831f40bd17a09448c,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_2f2227cb79e3420fe156a34dc305197e = L.control.layers(
+                layer_control_2f2227cb79e3420fe156a34dc305197e_layers.base_layers,
+                layer_control_2f2227cb79e3420fe156a34dc305197e_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_d9c02b26b828f9a1ea1d4e19fbd79695);
+
+        
+</script>
+</html>
+
+    <main>
+        <section>
+            <h2>Reflection</h2>
+            <h3>Design Inspiration</h3>
+            <p>For my basemap design, I wanted something that felt simple but still visually interesting. I was inspired by modern maps that use softer and more minimal colors. When I was looking through different photos and inspiration, I knew I wanted a muted base with small pops of color for the different features. In Mapbox, I selected colors based on a photo I took in San Diego. I used the colors from the rocks as inspiration for the base of the map, while incorporating the greens and pinks from the image into features like the roads and labels. I wanted the map to feel calm and natural while still making the important elements easy to see.</p>
+            <h3>Cartographic Challenges</h3>
+            <p>One of the main challenges I faced was thinking about how these colors would contrast on a map. Originally, I used a darker base and quickly realized it made the rest of the map much harder to see. Because the labels and roads are important for navigation, I wanted the base to stay more neutral so those elements could stand out. Another issue was that the green roads originally made the map look cluttered. After experimenting with the settings, I adjusted the width of the roads so they were thinner, which made the map much easier to look at and understand.</p>
+            <h3>Technical Challenges</h3>
+            <p>One of the technical challenges I encountered was integrating the custom Mapbox style with Leaflet. Ensuring that the map tiles loaded correctly and that the interactive elements like markers and popups functioned smoothly required careful attention to the API documentation and some trial and error. Additionally, optimizing the map for performance while maintaining visual quality was a key consideration throughout the development process.The technical part of this assignment was where I struggled the most. I am not very confident in Python, so I used ChatGPT to help me write the base structure of the code. However, I asked it to leave some parts blank so that I could go in and add my own information, such as my Mapbox token, style ID, and file names. This helped me better understand where those pieces needed to go in the script. After that, I tested the code and made sure it connected correctly with my CSV file and Mapbox style. Looking at the final result, I honestly do not think this assignment would have been possible for me without the help of AI, but it did help me understand the process much better.</p>
+   
+        </section>
+
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Isabella Nastas | <a href="https://github.com/isabellanastas/DCDA40833-portfolio">GitHub</a></p>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.dark-mode-toggle');
+
+        // Check for saved preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggle.textContent = '☀️';
+        }
+
+        toggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                toggle.textContent = '🌙';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                toggle.textContent = '☀️';
+            }
+        });
+    </script>
+</body>
+</html>
