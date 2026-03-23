@@ -254,6 +254,13 @@ main section li {
     text-align: center;
 }
 
+/* Map section styling */
+.map-section {
+    margin: 2rem auto;
+    max-width: 900px;
+    padding: 0 1rem;
+}
+
 .viz-container img {
     max-width: 100%;           /* Responsive: never wider than container */
     height: auto;              /* Maintain aspect ratio */
